@@ -83,7 +83,7 @@ public class atlascopy {
 	    }
 	    try {
 	        WebDriverWait wait7 = new WebDriverWait(driver, 30);
-		 WebElement table2 = wait7.until(ExpectedConditions.elementToBeClickable(By.xpath("//nb-icon[@nbtooltip='Atlas Editor']")));
+		 WebElement table2 = wait7.until(ExpectedConditions.elementToBeClickable(By.xpath("//nb-icon[@icon='viewer']")));
 		    table2.click();
 	        System.out.println("-------------------------------------------------");
 	        System.out.println("The viewer icon is clicked");
