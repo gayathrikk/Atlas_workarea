@@ -30,8 +30,8 @@ public class atlascopy {
 		driver.manage().window().maximize();
 		System.out.println("The server is Opened sucessfully");
 		WebDriverWait wait = new WebDriverWait(driver, 50);
-		WebElement viewerSectionLink = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(@class, 'ng-tns-c93-3')]")));
-		viewerSectionLink.click();
+		 WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()=' Log In ']")));
+		loginButton.click();
 		System.out.println("The Viewer Icon is clicked");
 		String parentWindow = driver.getWindowHandle();
 		WebDriverWait wait1= new WebDriverWait(driver, 20);
