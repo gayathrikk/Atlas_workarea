@@ -70,10 +70,11 @@ public class atlascopy {
 	@Test(priority = 2)
 	public void table() throws InterruptedException {
 	    String parentWindow = driver.getWindowHandle();
+	    WebDriverWait wait = new WebDriverWait(driver, 30);
+	    
 	    try {
-	        WebDriverWait wait6 = new WebDriverWait(driver, 30);
-	        WebElement table1 = wait6.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Search tags']")));
-	        table1.sendKeys("222\n");
+	        WebElement table1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Search tags']")));
+	        table1.sendKeys("hlo\n");
 	        Thread.sleep(3000);
 	        System.out.println("-------------------------------------------------");
 	        System.out.println("The number Entered Successfully");
@@ -81,38 +82,10 @@ public class atlascopy {
 	        System.out.println("-------------------------------------------------");
 	        System.out.println("The number is not Entered successfully");
 	    }
+
+
 	    try {
-	        WebDriverWait wait7 = new WebDriverWait(driver, 30);
-		 WebElement table2 = wait7.until(ExpectedConditions.elementToBeClickable(By.xpath("//nb-icon[@icon='viewer']")));
-		    table2.click();
-	        System.out.println("-------------------------------------------------");
-	        System.out.println("The viewer icon is clicked");
-	    } catch (Exception e) {
-	        System.out.println("-------------------------------------------------");
-	        System.out.println("The viewer icon is not clicked");
-	    }
-	    Thread.sleep(4000);
-	    Set<String> allWindows = driver.getWindowHandles();
-	    for (String window : allWindows) {
-	        if (!window.equals(parentWindow)) {
-	            driver.switchTo().window(window);
-	            break;
-	        }
-	    }
-	    try {
-	        WebDriverWait wait8 = new WebDriverWait(driver, 30);
-	        WebElement table3 = wait8.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[text()='940'])[1]")));
-	        Thread.sleep(3000);
-	        table3.click();
-	        System.out.println("-------------------------------------------------");
-	        System.out.println("The number is clicked");
-	    } catch (Exception e) {
-	        System.out.println("-------------------------------------------------");
-	        System.out.println("The number is not clicked");
-	    }
-	    try {
-	        WebDriverWait wait = new WebDriverWait(driver, 30);
-	        WebElement icon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@src='/viewer/assets/images/colorsvg/viewAtlas.svg']")));
+	        WebElement icon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//nb-icon[@nbtooltip='Atlas Editor']")));
 	        icon.click();
 	        Thread.sleep(3000);
 	        System.out.println("-------------------------------------------------");
@@ -120,8 +93,17 @@ public class atlascopy {
 	    } catch (Exception e) {
 	        System.out.println("The Atlas editor is not clicked");
 	    }
+
+	    Thread.sleep(3000);
+	    Set<String> allWindows = driver.getWindowHandles();
+	    for (String window : allWindows) {
+	        if (!window.equals(parentWindow)) {
+	            driver.switchTo().window(window);
+	            break;
+	        }
+	    }
+
 	    try {
-	        WebDriverWait wait = new WebDriverWait(driver, 50);
 	        WebElement edit = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@src='/viewer/assets/images/colorsvg/oldmenu.svg']")));
 	        edit.click();
 	        Thread.sleep(3000);
@@ -130,8 +112,8 @@ public class atlascopy {
 	    } catch (Exception e) {
 	        System.out.println("The Edit icon is not clicked");
 	    }
+
 	    try {
-	        WebDriverWait wait = new WebDriverWait(driver, 50);
 	        WebElement draw = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@src='/viewer/assets/images/colorsvg/paintbrush.svg']")));
 	        draw.click();
 	        Thread.sleep(3000);
@@ -140,7 +122,18 @@ public class atlascopy {
 	    } catch (Exception e) {
 	        System.out.println("The Draw icon is not clicked");
 	    }
+	    try {
+			 
+			WebElement unlock = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Unlock']")));
+			unlock.click();
+			System.out.println("--------------------------*****************-----------------------");
+			System.out.println("The Unlock button is clicked");
+		} catch (Exception e) {
+			System.out.println("--------------------------*****************-----------------------");
+			System.out.println("The Unlock button is not clicked");
+		}
 	}
+
 	    @Test (priority=3)
 	    public void atlas() throws InterruptedException {
 	    	try {
@@ -157,7 +150,7 @@ public class atlascopy {
 	    try {
 	        WebDriverWait wait = new WebDriverWait(driver, 50);
 	        Thread.sleep(3000);
-	        WebElement section = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//option[text()=' 937 ']")));
+	        WebElement section = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//option[text()=' 640 ']")));
 	       section.click();
 	        Thread.sleep(3000);
 	        System.out.println("-------------------------------------------------");
